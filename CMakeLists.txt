@@ -1,7 +1,7 @@
 
 cmake_minimum_required(VERSION 3.0)
 
-project(stend)
+project(dji_naza_reader)
 
 find_package(OpenCV REQUIRED)
 find_package(PkgConfig REQUIRED)
@@ -15,6 +15,6 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR} ${CMAKE_CURRENT_BINARY_DIR})
 
 set(sources main.cpp)
 
-add_executable(nav_parse ${sources})
-target_link_libraries(nav_parse ${OpenCV_LIBS} ${PC_AMV_LIBRARIES})
+add_executable(dji_naza_reader ${sources})
+target_link_libraries(dji_naza_reader ${OpenCV_LIBS} ${PC_AMV_LIBRARIES})
 
