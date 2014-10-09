@@ -1,0 +1,7 @@
+<RCC>
+  <qresource prefix="icons">
+    <file alias="icon">icon.png</file>
+    <file alias="about">about.png</file>
+    <file alias="convert">convert.png</file>
+  </qresource>
+</RCC>
