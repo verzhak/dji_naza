@@ -21,7 +21,7 @@ CSuperStendXmlLoader::~CSuperStendXmlLoader()
 void CSuperStendXmlLoader::packet_1002(const unsigned real_sequence, const unsigned sequence, const QMap<QString, QVariant> content)
 {
 #define ANGLE_TRANSLATE(from_angle, to_angle)\
-	to_angle += content[from_angle].toDouble() / M_PI * 180;
+	to_angle += 0.001 * content[from_angle].toDouble() / M_PI * 180;
 
 	ANGLE_TRANSLATE("gyroscope_Z", course);
 	ANGLE_TRANSLATE("gyroscope_X", roll);
