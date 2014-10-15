@@ -19,7 +19,7 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR} ${CMAKE_CURRENT_BINARY_DIR} ${Qt
 qt5_wrap_ui(dialogs resources/main_window.ui resources/convert_dialog.ui resources/about_dialog.ui)
 qt5_add_resources(resources resources/resources.qrc)
 
-set(sources main.cpp ${dialogs} ${resources} ui/main_window.cpp ui/convert_dialog.cpp ui/about_dialog.cpp lib/base.cpp lib/raw_xml.cpp lib/super_stend_xml.cpp lib/kml.cpp)
+set(sources main.cpp ${dialogs} ${resources} ui/main_window.cpp ui/convert_dialog.cpp ui/about_dialog.cpp lib/base.cpp lib/raw_xml.cpp lib/super_stend_xml.cpp lib/kml.cpp ui/QProgressIndicator/QProgressIndicator.cpp)
 
 add_executable(dji_naza ${sources})
 qt5_use_modules(dji_naza Core Widgets)

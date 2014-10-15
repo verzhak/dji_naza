@@ -17,9 +17,6 @@ TODO
 release
 *.eps
 release
-*.png
-*.tif
-*.tiff
 visual_studio
 glues
 gl_sc
