@@ -121,5 +121,7 @@ void CConvertDialog::on_convert_button_clicked()
 		loader.reset(new CKmlLoader(dst_fname));
 	else
 		throw_;
+	
+	process(src_fname, loader.get());
 }
 

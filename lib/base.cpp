@@ -14,6 +14,7 @@ void process_unknown(const unsigned id, const unsigned payload_size, const unsig
 
 void process(const QString src_fname, CLoader * loader)
 {
+  printf("IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII\n");
 	QFile src_fl(src_fname);
 	const unsigned size = src_fl.size();
 	uint8_t * buf;
