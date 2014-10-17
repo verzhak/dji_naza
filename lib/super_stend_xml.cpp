@@ -18,10 +18,13 @@ CSuperStendXmlLoader::~CSuperStendXmlLoader()
 	stream.writeEndDocument();
 }
 
+unsigned pc = 0;
+
 void CSuperStendXmlLoader::packet_1002(const unsigned real_sequence, const unsigned sequence, const QMap<QString, QVariant> content)
 {
 #define ANGLE_TRANSLATE(from_angle, to_angle)\
-	to_angle += 0.001 * content[from_angle].toDouble() / M_PI * 180;
+	to_angle = content[from_angle].toDouble() * M_PI * 180;
+	// to_angle += 0.01 * content[from_angle].toDouble(); // / M_PI * 180;
 
 	ANGLE_TRANSLATE("gyroscope_Z", course);
 	ANGLE_TRANSLATE("gyroscope_X", roll);
@@ -49,5 +52,8 @@ void CSuperStendXmlLoader::packet_1002(const unsigned real_sequence, const unsig
 	WRITE_ELEM("coord_system", "unsigned", QString::number(2));
 
 	stream.writeEndElement();
+
+	pc++;
+	printf_TODO("Пакетов %u - секунды %lf - тангаж %lf %lf = %lf %lf\n", pc, pc * 0.01, pitch, content["gyroscope_Y"].toDouble(), content["altitude"].toDouble(), content["altitude_barometric"].toDouble());
 }
 

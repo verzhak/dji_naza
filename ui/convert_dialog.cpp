@@ -112,6 +112,7 @@ void CConvertDialog::on_convert_button_clicked()
 {
 	const QString dst_filter_id = dst_filters[dst_filter_name].id;
 	shared_ptr<CLoader> loader;
+	CLoader * p_loader;
 
 	if(dst_filter_id == "raw_xml")
 		loader.reset(new CRawXmlLoader(dst_fname));
@@ -122,6 +123,7 @@ void CConvertDialog::on_convert_button_clicked()
 	else
 		throw_;
 	
-	process(src_fname, loader.get());
+	throw_null(p_loader = loader.get());
+	process(src_fname, p_loader);
 }
 

@@ -16,6 +16,7 @@ CMainWindow::CMainWindow() :
 		return action;
 	};
 
+	add_action(trUtf8("Отладка"), ":/icons/debug", SLOT(debug()));
 	add_action(trUtf8("Конвертировать"), ":/icons/convert", SLOT(convert()));
 	add_action(trUtf8("О программе"), ":/icons/about", SLOT(about()));
 }
@@ -47,5 +48,17 @@ void CMainWindow::convert()
 	{
 		;
 	}
+}
+
+void CMainWindow::debug()
+{
+	const QString src_fname = "/home/amv/disser/data/uav/17-14/Полеты_12_10_2014/Полетные данные/FLY090.DAT";
+	const QString dst_fname = "1.xml";
+	shared_ptr<CLoader> loader;
+	CLoader * p_loader;
+
+	loader.reset(new CSuperStendXmlLoader(dst_fname));
+	throw_null(p_loader = loader.get());
+	process(src_fname, loader.get());
 }
 

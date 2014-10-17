@@ -18,6 +18,7 @@ class CMainWindow : public QMainWindow, private Ui::main_window
 
 	public slots:
 
+		void debug();
 		void convert();
 		void about();
 };
