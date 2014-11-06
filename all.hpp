@@ -4,7 +4,7 @@
 
 #include <cstdio>
 #include <memory>
-#include <opencv2/opencv.hpp>
+// #include <opencv2/opencv.hpp>
 #include <amv/amv.hpp>
 #include <QtCore>
 #include <QApplication>

@@ -5,7 +5,7 @@ project(dji_naza)
 
 find_package(Qt5Core REQUIRED)
 find_package(Qt5Widgets REQUIRED)
-find_package(OpenCV REQUIRED)
+# find_package(OpenCV REQUIRED)
 find_package(PkgConfig REQUIRED)
 pkg_check_modules(PC_AMV QUIET amv)
 
@@ -23,5 +23,6 @@ set(sources main.cpp ${dialogs} ${resources} ui/main_window.cpp ui/convert_dialo
 
 add_executable(dji_naza ${sources})
 qt5_use_modules(dji_naza Core Widgets)
-target_link_libraries(dji_naza ${OpenCV_LIBS} ${PC_AMV_LIBRARIES} glapi)
+# target_link_libraries(dji_naza ${OpenCV_LIBS} ${PC_AMV_LIBRARIES} glapi)
+target_link_libraries(dji_naza ${PC_AMV_LIBRARIES} glapi)
 

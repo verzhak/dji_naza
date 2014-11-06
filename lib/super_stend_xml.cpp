@@ -22,13 +22,13 @@ unsigned pc = 0;
 
 void CSuperStendXmlLoader::packet_1002(const unsigned real_sequence, const unsigned sequence, const QMap<QString, QVariant> content)
 {
-#define ANGLE_TRANSLATE(from_angle, to_angle)\
-	to_angle = content[from_angle].toDouble() * M_PI * 180;
+#define ANGLE_TRANSLATE(from_angle, to_angle, coef)\
+	to_angle = coef * content[from_angle].toDouble() / M_PI * 180;
 	// to_angle += 0.01 * content[from_angle].toDouble(); // / M_PI * 180;
 
-	ANGLE_TRANSLATE("gyroscope_Z", course);
-	ANGLE_TRANSLATE("gyroscope_X", roll);
-	ANGLE_TRANSLATE("gyroscope_Y", pitch);
+	ANGLE_TRANSLATE("accelerometer_X", pitch, 1);
+	ANGLE_TRANSLATE("accelerometer_Y", roll, -1);
+	ANGLE_TRANSLATE("accelerometer_Z", course, 1);
 
 	stream.writeStartElement("frame");
 
@@ -54,6 +54,11 @@ void CSuperStendXmlLoader::packet_1002(const unsigned real_sequence, const unsig
 	stream.writeEndElement();
 
 	pc++;
-	printf_TODO("Пакетов %u - секунды %lf - тангаж %lf %lf = %lf %lf\n", pc, pc * 0.01, pitch, content["gyroscope_Y"].toDouble(), content["altitude"].toDouble(), content["altitude_barometric"].toDouble());
+//	printf_TODO("Пакетов %u - секунды %lf - курс: %lf %lf, крен: %lf %lf, тангаж: %lf %lf\n",
+//			pc, pc * 0.01,
+//			course, content["gyroscope_Z"].toDouble(),
+//			roll, content["gyroscope_X"].toDouble(),
+//			pitch, content["gyroscope_Y"].toDouble());
+	printf("%.11lf\n", content["gyroscope_Z"].toDouble());
 }
 

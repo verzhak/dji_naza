@@ -52,7 +52,7 @@ void CMainWindow::convert()
 
 void CMainWindow::debug()
 {
-	const QString src_fname = "/home/amv/disser/data/uav/17-14/Полеты_12_10_2014/Полетные данные/FLY090.DAT";
+	const QString src_fname = "/home/amv/disser/data/uav/17-14/Полеты_28_09_2014/Полетные данные/FLY084.DAT";
 	const QString dst_fname = "1.xml";
 	shared_ptr<CLoader> loader;
 	CLoader * p_loader;
