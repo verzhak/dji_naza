@@ -31,6 +31,7 @@ void CSuperStendXmlLoader::packet_1002(const unsigned real_sequence, const unsig
 	ANGLE_TRANSLATE("accelerometer_Z", course, 1);
 
 	stream.writeStartElement("frame");
+	stream.writeAttribute("id", QString::number(pc));
 
 #define WRITE_ELEM(elem, type, value)\
 	stream.writeStartElement(elem);\
